@@ -1,9 +1,35 @@
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FLIB 2.0 Road to Montréal</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <div id="flib-tracker">
   <div class="wrap">
+
     <section class="hero-copy">
-      <div class="eyebrow">FLIB 2.0 Lifecycle Tracker</div>
+      <div class="eyebrow">
+        FLIB 2.0 Lifecycle Tracker
+      </div>
+
       <h1>Road to Montréal</h1>
+
       <p class="subtitle">
         174 hours of continuous lifecycle cycling.
         One very vertical road trip to Canada.
@@ -11,111 +37,178 @@
     </section>
 
     <div class="layout">
+
       <section class="card map-card">
+
         <div class="route">
-          <div class="grid-bg"></div>
 
-          <div class="track">
-            <div class="track-progress" id="trackProgress"></div>
-          </div>
-
-          <div class="pin start-pin">
-            <div class="pin-dot"></div>
-            <strong>Symbotic HQ</strong>
-            <span>Wilmington, MA</span>
-          </div>
-
-          <div class="pin end-pin">
-            <div class="pin-dot"></div>
-            <strong>Montréal</strong>
-            <span>Québec</span>
-          </div>
-
-          <div class="lift" id="liftMarker">🏗️</div>
+          <div id="map"></div>
 
           <div class="route-label">
             231 test miles mapped to Wilmington → Montréal
           </div>
+
         </div>
 
         <div class="stats-grid">
+
           <div class="stat">
-            <div class="stat-value" id="runMiles">0 mi</div>
-            <div class="stat-label">Current-run travel</div>
+            <div class="stat-value" id="runMiles">
+              0 mi
+            </div>
+            <div class="stat-label">
+              Current-run travel
+            </div>
           </div>
 
           <div class="stat">
-            <div class="stat-value" id="runCycles">0</div>
-            <div class="stat-label">Current-run cycles</div>
+            <div class="stat-value" id="runCycles">
+              0
+            </div>
+            <div class="stat-label">
+              Current-run cycles
+            </div>
           </div>
 
           <div class="stat">
-            <div class="stat-value" id="totalMiles">0 mi</div>
-            <div class="stat-label">Total lifecycle travel</div>
+            <div class="stat-value" id="totalMiles">
+              0 mi
+            </div>
+            <div class="stat-label">
+              Total lifecycle travel
+            </div>
           </div>
 
           <div class="stat">
-            <div class="stat-value" id="totalCycles">0</div>
-            <div class="stat-label">Total lifecycle cycles</div>
+            <div class="stat-value" id="totalCycles">
+              0
+            </div>
+            <div class="stat-label">
+              Total lifecycle cycles
+            </div>
           </div>
+
         </div>
+
       </section>
 
+
       <aside class="side">
+
         <section class="countdown-card">
-          <div class="countdown-label">ETA Montréal</div>
-          <div class="countdown" id="countdown">—</div>
+
+          <div class="countdown-label">
+            ETA Montréal
+          </div>
+
+          <div class="countdown" id="countdown">
+            —
+          </div>
+
           <div class="finish">
             Target stop: Friday, Aug. 28 · 4:00 PM ET
           </div>
 
           <div class="meter">
-            <div class="meter-fill" id="meterFill"></div>
+            <div
+              class="meter-fill"
+              id="meterFill">
+            </div>
           </div>
 
-          <div class="badge" id="progressBadge">0% complete</div>
+          <div
+            class="badge"
+            id="progressBadge">
+            0% complete
+          </div>
+
         </section>
+
 
         <section class="card detail-card">
-          <div class="detail-row">
-            <span>Continuous run</span>
-            <strong id="elapsedHours">0 hr</strong>
-          </div>
 
           <div class="detail-row">
-            <span>Planned duration</span>
-            <strong>174 hr</strong>
+            <span>
+              Continuous run
+            </span>
+
+            <strong id="elapsedHours">
+              0 hr
+            </strong>
           </div>
 
-          <div class="detail-row">
-            <span>Projected run cycles</span>
-            <strong>~54,000</strong>
-          </div>
 
           <div class="detail-row">
-            <span>Projected total cycles</span>
-            <strong>~72,000</strong>
+            <span>
+              Planned duration
+            </span>
+
+            <strong>
+              174 hr
+            </strong>
           </div>
 
-          <div class="detail-row">
-            <span>Accelerated usage exposure</span>
-            <strong>5.6× field cycle frequency</strong>
-          </div>
 
           <div class="detail-row">
-            <span>Status</span>
-            <strong id="statusText">Still trucking</strong>
+            <span>
+              Projected run cycles
+            </span>
+
+            <strong>
+              ~54,000
+            </strong>
           </div>
+
+
+          <div class="detail-row">
+            <span>
+              Projected total cycles
+            </span>
+
+            <strong>
+              ~72,000
+            </strong>
+          </div>
+
+
+          <div class="detail-row">
+            <span>
+              Accelerated usage exposure
+            </span>
+
+            <strong>
+              5.6× average field cycle frequency
+            </strong>
+          </div>
+
+
+          <div class="detail-row">
+            <span>
+              Status
+            </span>
+
+            <strong id="statusText">
+              Northbound 🇨🇦
+            </strong>
+          </div>
+
         </section>
+
       </aside>
+
     </div>
+
 
     <div class="footnote">
       Progress is time-based from Friday Aug. 21, 2026 at 10:00 AM ET
       through Friday Aug. 28, 2026 at 4:00 PM ET.
       Mileage and cycle counts are interpolated to the planned end-of-run totals.
     </div>
+
   </div>
 </div>
-</div>
+
 <script src="script.js"></script>
+
+</body>
+</html>
