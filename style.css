@@ -2,11 +2,20 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+}
+
+body {
   background: #f3f6fa;
   color: #172132;
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
 #flib-tracker {
@@ -18,6 +27,11 @@ body {
   width: min(1120px, 100%);
   margin: 0 auto;
 }
+
+
+/* -----------------------------
+   HEADER
+------------------------------ */
 
 .hero-copy {
   margin-bottom: 22px;
@@ -45,9 +59,17 @@ h1 {
   color: #59697d;
 }
 
+
+/* -----------------------------
+   PAGE LAYOUT
+------------------------------ */
+
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.65fr);
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(300px, 0.65fr);
+
   gap: 20px;
   align-items: start;
 }
@@ -58,126 +80,141 @@ h1 {
   border-radius: 20px;
 }
 
+
+/* -----------------------------
+   MAP CARD
+------------------------------ */
+
 .map-card {
   padding: 18px;
 }
 
 .route {
   position: relative;
-  height: 360px;
+  height: 420px;
   overflow: hidden;
   border: 1px solid #d8e1eb;
   border-radius: 16px;
-  background: linear-gradient(180deg, #edf4fb 0%, #fbfdff 100%);
+  background: #edf4fb;
 }
 
-.grid-bg {
+#map {
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle at 1px 1px, #c7d4e2 1px, transparent 1px);
-  background-size: 22px 22px;
-  opacity: 0.35;
-}
-
-.track {
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 53%;
-  height: 7px;
-  border-radius: 999px;
-  background: #aebed0;
-  transform: rotate(-8deg);
-  transform-origin: center;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.track-progress {
-  width: 0%;
+  width: 100%;
   height: 100%;
-  background: #6ebd2c;
-  border-radius: 999px;
-  transition: width 0.8s ease;
+  z-index: 1;
 }
 
-.pin {
-  position: absolute;
-  z-index: 5;
-  text-align: center;
-  transform: translate(-50%, -50%);
+
+/* Make the map feel a little cleaner */
+
+.leaflet-container {
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+  background: #e8eef5;
 }
 
-.pin-dot {
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: #243750;
-  border: 4px solid white;
-  margin: 0 auto 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+.leaflet-control-attribution {
+  font-size: 9px;
 }
 
-.pin strong {
-  display: block;
-  font-size: 14px;
-}
 
-.pin span {
-  display: block;
-  color: #68778a;
-  font-size: 12px;
-  margin-top: 2px;
-}
-
-.start-pin {
-  left: 10%;
-  top: 65%;
-}
-
-.end-pin {
-  left: 90%;
-  top: 38%;
-}
-
-.lift {
-  position: absolute;
-  left: 10%;
-  top: 53%;
-  z-index: 10;
-  font-size: 36px;
-  transform: translate(-50%, -50%);
-  transition: left 0.8s ease, top 0.8s ease;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
-}
+/* Floating route description */
 
 .route-label {
   position: absolute;
   left: 50%;
   bottom: 12px;
+
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #dde5ef;
-  padding: 6px 10px;
+
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #d7e0ea;
+
+  padding: 7px 12px;
+
   border-radius: 999px;
+
   font-size: 12px;
-  color: #657386;
-  z-index: 5;
-  text-align: center;
+  color: #5f6d80;
+
+  z-index: 1000;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.08);
 }
+
+
+/* -----------------------------
+   MAP MARKERS
+------------------------------ */
+
+.flib-map-marker {
+  font-size: 34px;
+  line-height: 36px;
+  text-align: center;
+
+  filter:
+    drop-shadow(
+      0 2px 4px
+      rgba(0, 0, 0, 0.35)
+    );
+}
+
+.city-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  color: #172132;
+
+  border:
+    1px solid
+    #d6dee8;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.12);
+
+  padding:
+    5px 8px;
+
+  font-size: 12px;
+}
+
+.city-tooltip::before {
+  display: none;
+}
+
+
+/* -----------------------------
+   STAT CARDS
+------------------------------ */
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
   gap: 12px;
   margin-top: 14px;
 }
 
 .stat {
   background: #f6f8fb;
-  border: 1px solid #e1e7ef;
+
+  border:
+    1px solid
+    #e1e7ef;
+
   border-radius: 14px;
+
   padding: 16px;
 }
 
@@ -193,15 +230,25 @@ h1 {
   font-size: 13px;
 }
 
+
+/* -----------------------------
+   RIGHT SIDE
+------------------------------ */
+
 .side {
   display: grid;
   gap: 16px;
 }
 
+
+/* Countdown */
+
 .countdown-card {
   background: #273e61;
   color: white;
+
   border-radius: 20px;
+
   padding: 22px;
 }
 
@@ -218,7 +265,9 @@ h1 {
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
-  margin: 10px 0 7px;
+
+  margin:
+    10px 0 7px;
 }
 
 .finish {
@@ -226,32 +275,66 @@ h1 {
   opacity: 0.78;
 }
 
+
+/* Progress meter */
+
 .meter {
   height: 16px;
-  background: rgba(255, 255, 255, 0.15);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+
   border-radius: 999px;
   overflow: hidden;
+
   margin-top: 20px;
 }
 
 .meter-fill {
   height: 100%;
   width: 0%;
+
   border-radius: 999px;
+
   background: #7bd52e;
-  transition: width 0.8s ease;
+
+  transition:
+    width 0.8s ease;
 }
 
 .badge {
   display: inline-block;
+
   margin-top: 12px;
-  padding: 6px 10px;
+
+  padding:
+    6px 10px;
+
   border-radius: 999px;
-  background: rgba(123, 213, 46, 0.18);
+
+  background:
+    rgba(
+      123,
+      213,
+      46,
+      0.18
+    );
+
   color: #a4ec68;
+
   font-size: 12px;
   font-weight: 800;
 }
+
+
+/* -----------------------------
+   DETAILS
+------------------------------ */
 
 .detail-card {
   padding: 10px 20px;
@@ -260,9 +343,15 @@ h1 {
 .detail-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   gap: 18px;
+
   padding: 14px 0;
-  border-bottom: 1px solid #e6ebf1;
+
+  border-bottom:
+    1px solid
+    #e6ebf1;
 }
 
 .detail-row:last-child {
@@ -279,26 +368,42 @@ h1 {
   font-size: 14px;
 }
 
+
+/* -----------------------------
+   FOOTNOTE
+------------------------------ */
+
 .footnote {
   margin-top: 16px;
+
   color: #738094;
+
   font-size: 12px;
   line-height: 1.45;
 }
 
+
+/* -----------------------------
+   RESPONSIVE
+------------------------------ */
+
 @media (max-width: 820px) {
+
   .layout {
     grid-template-columns: 1fr;
   }
 
   .route {
-    height: 300px;
+    height: 380px;
   }
 }
 
+
 @media (max-width: 520px) {
+
   #flib-tracker {
-    padding: 20px 12px;
+    padding:
+      20px 12px;
   }
 
   .stats-grid {
@@ -306,11 +411,17 @@ h1 {
   }
 
   .route {
-    height: 260px;
+    height: 340px;
   }
 
   .route-label {
-    width: 82%;
+    width: 85%;
+    white-space: normal;
+    text-align: center;
     border-radius: 12px;
+  }
+
+  .detail-row {
+    align-items: flex-start;
   }
 }
