@@ -6,6 +6,63 @@
 
   <title>FLIB 2.0 Road to Montréal</title>
 
+  <!-- Standard metadata -->
+  <meta
+    name="description"
+    content="Live FLIB 2.0 lifecycle tracker from Symbotic HQ in Wilmington, MA to Montréal. 174 hours of continuous testing, ~54,000 cycles in the current run, and ~72,000 projected total cycles."
+  >
+
+  <!-- Open Graph metadata for Teams / social link previews -->
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="FLIB 2.0 Road to Montréal"
+  >
+
+  <meta
+    property="og:description"
+    content="Live lifecycle tracker: Wilmington, MA to Montréal. 174 hours of continuous testing, ~54,000 cycles in the current run, and ~72,000 projected total cycles."
+  >
+
+  <meta
+    property="og:url"
+    content="https://leblanck137.github.io/flib-montreal-tracker/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://leblanck137.github.io/flib-montreal-tracker/preview.png"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="FLIB 2.0 Road to Montréal lifecycle tracker showing progress from Wilmington, Massachusetts to Montréal, Québec."
+  >
+
+  <!-- Optional Twitter/X-style card metadata; sometimes used by preview systems -->
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="FLIB 2.0 Road to Montréal"
+  >
+
+  <meta
+    name="twitter:description"
+    content="174 hours of continuous FLIB lifecycle testing mapped from Wilmington, MA to Montréal."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://leblanck137.github.io/flib-montreal-tracker/preview.png"
+  >
+
+
+  <!-- Leaflet map -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -15,7 +72,11 @@
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
   </script>
 
-  <link rel="stylesheet" href="style.css?v=2">
+  <!-- Cache-busted local stylesheet -->
+  <link
+    rel="stylesheet"
+    href="style.css?v=3"
+  >
 </head>
 
 <body>
@@ -24,17 +85,22 @@
   <div class="wrap">
 
     <section class="hero-copy">
+
       <div class="eyebrow">
         FLIB 2.0 Lifecycle Tracker
       </div>
 
-      <h1>Road to Montréal</h1>
+      <h1>
+        Road to Montréal
+      </h1>
 
       <p class="subtitle">
         174 hours of continuous lifecycle cycling.
         One very vertical road trip to Canada.
       </p>
+
     </section>
+
 
     <div class="layout">
 
@@ -50,42 +116,66 @@
 
         </div>
 
+
         <div class="stats-grid">
 
           <div class="stat">
-            <div class="stat-value" id="runMiles">
+
+            <div
+              class="stat-value"
+              id="runMiles">
               0 mi
             </div>
+
             <div class="stat-label">
               Current-run travel
             </div>
+
           </div>
 
+
           <div class="stat">
-            <div class="stat-value" id="runCycles">
+
+            <div
+              class="stat-value"
+              id="runCycles">
               0
             </div>
+
             <div class="stat-label">
               Current-run cycles
             </div>
+
           </div>
 
+
           <div class="stat">
-            <div class="stat-value" id="totalMiles">
+
+            <div
+              class="stat-value"
+              id="totalMiles">
               0 mi
             </div>
+
             <div class="stat-label">
               Total lifecycle travel
             </div>
+
           </div>
 
+
           <div class="stat">
-            <div class="stat-value" id="totalCycles">
+
+            <div
+              class="stat-value"
+              id="totalCycles">
               0
             </div>
+
             <div class="stat-label">
               Total lifecycle cycles
             </div>
+
           </div>
 
         </div>
@@ -101,20 +191,28 @@
             ETA Montréal
           </div>
 
-          <div class="countdown" id="countdown">
+
+          <div
+            class="countdown"
+            id="countdown">
             —
           </div>
+
 
           <div class="finish">
             Target stop: Friday, Aug. 28 · 4:00 PM ET
           </div>
 
+
           <div class="meter">
+
             <div
               class="meter-fill"
               id="meterFill">
             </div>
+
           </div>
+
 
           <div
             class="badge"
@@ -128,6 +226,7 @@
         <section class="card detail-card">
 
           <div class="detail-row">
+
             <span>
               Continuous run
             </span>
@@ -135,10 +234,12 @@
             <strong id="elapsedHours">
               0 hr
             </strong>
+
           </div>
 
 
           <div class="detail-row">
+
             <span>
               Planned duration
             </span>
@@ -146,10 +247,12 @@
             <strong>
               174 hr
             </strong>
+
           </div>
 
 
           <div class="detail-row">
+
             <span>
               Projected run cycles
             </span>
@@ -157,10 +260,12 @@
             <strong>
               ~54,000
             </strong>
+
           </div>
 
 
           <div class="detail-row">
+
             <span>
               Projected total cycles
             </span>
@@ -168,10 +273,12 @@
             <strong>
               ~72,000
             </strong>
+
           </div>
 
 
           <div class="detail-row">
+
             <span>
               Accelerated usage exposure
             </span>
@@ -179,10 +286,12 @@
             <strong>
               5.6× average field cycle frequency
             </strong>
+
           </div>
 
 
           <div class="detail-row">
+
             <span>
               Status
             </span>
@@ -190,6 +299,7 @@
             <strong id="statusText">
               Northbound 🇨🇦
             </strong>
+
           </div>
 
         </section>
@@ -208,7 +318,9 @@
   </div>
 </div>
 
-<script src="script.js?v=2"></script>
+
+<!-- Cache-busted local JavaScript -->
+<script src="script.js?v=3"></script>
 
 </body>
 </html>
